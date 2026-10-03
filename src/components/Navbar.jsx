@@ -82,11 +82,11 @@ export default function Navbar() {
               <div className="flex items-center gap-2"> 
                 <div className="w-[39px] h-[39px] rounded-lg bg-[#bd5d3c] flex items-center justify-center">
                    <span className="text-white text-[26px] font-serif italic font-bold">
-                     e
+                     g
                    </span> 
                   </div> 
                   <span className="text-[27px] font-serif font-bold text-[#302723]"> 
-                    ekta
+                    glamkudi
                   </span> 
                 </div> 
                 <button className="text-[#302723] z-60"
@@ -124,22 +124,26 @@ export default function Navbar() {
   `}
 >
   <div className="flex flex-col gap-3 text-[#302723] ml-5 ">
-    <button className=" flex items-center gap-3 p-2 rounded-lg hover:bg-white/10">
+    <button className=" flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+    onClick={()=> navigate("/")}>
       <FiHome size={18}  />
       <span>Home</span>
     </button>
 
-    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10">
+    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+      onClickl={()=>navigate("/wishlist")}>
       <FiHeart size={18} />
       <span>Wishlist</span>
     </button>
 
-    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10">
+    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+      onClick={ ()=>navigate("/bag")}>
       <FiShoppingBag size={18} />
       <span>Bag</span>
     </button>
 
-    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10">
+    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+      onClickl={ ()=>navigate("/profile")}>
       <FiUser size={18} />
       <span>Profile</span>
     </button>
