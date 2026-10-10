@@ -57,7 +57,7 @@ export default function AdminAddProduct() {
 
       <form
         onSubmit={handlesubmit}
-        className="flex flex-col items-center justify-center mx-3  bg-white max-w-[470px] xl:mx-auto my-20 w-full rounded-xl border p-4"
+        className="flex flex-col items-center justify-center mx-3  bg-white max-w-[470px] xl:mx-auto   xl:my-20 w-full rounded-xl border p-4"
       >
 
         <h3 className='font-semibold text-xl font-["Playfair_Display"]'>
