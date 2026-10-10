@@ -13,8 +13,8 @@ export default function Profile() {
             <p className=' text-[#a25d43] mb-5 font-bold'><FiUser size={30}/></p>
             <p className=' text-2xl md:text-3xl font-bold font-["Playfair_Display"]'>Welcome to GlameKudi.</p>
             <p className='text-[15px]  font-["sans-sarif"] mt-2'>sign in to see yout order, save item and personal detail</p>
-            <buttom className="bg-[#da7955] px-5 py-2 rounded-lg text-white font-semibold mt-8  hover:bg-[#d9653b] hover:-translate-y-0.5 duration-300  transition "
-              onClick ={()=>navigate("/login")}>Sign in</buttom>
+            <button className="bg-[#da7955] px-5 py-2 rounded-lg text-white font-semibold mt-8  hover:bg-[#d9653b] hover:-translate-y-0.5 duration-300  transition "
+              onClick ={()=>navigate("/login")}>Sign in</button>
         </div>
 
       </div>

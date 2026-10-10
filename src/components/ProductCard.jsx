@@ -3,6 +3,8 @@ import { FaHeart } from 'react-icons/fa'
 
 export default function ProductCard({data}) {
   return (
+    <>
+    
     <div className='min-w-[110px] transition transform-300 hover:-translate-y-2 '>
 
       <div className=' relative group   xl:h-[300px] w-full overflow-hidden rounded-t-2xl'>
@@ -15,11 +17,12 @@ export default function ProductCard({data}) {
       </div>
       <div className='bg-white text-black rounded-b-2xl p-3'>
         <p className='text-[10px]'>{data.category}</p>
-        <p className='text-sm md:text-md  font-semibold '>{data.name}</p>
-        <p className='text-sm font-bold'>₹ 999</p>
+        <p className='text-sm md:text-md  font-semibold '>{data.title}</p>
+        <p className='text-sm font-bold'>₹{Number(data.price).toLocaleString('en-IN')}</p>
         <p>size s . m .l .xl .xxl </p>
 
       </div>
     </div>
+    </>
   )
 }

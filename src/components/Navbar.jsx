@@ -1,4 +1,4 @@
-import { FiHome, FiHeart, FiShoppingBag, FiUser, FiSearch, FiMenu, FiX } from "react-icons/fi";
+import { FiHome, FiHeart, FiShoppingBag, FiUser, FiSearch, FiMenu, FiX  ,FiGrid } from "react-icons/fi";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -70,6 +70,13 @@ export default function Navbar() {
                 }}
                 />
 
+                <Navitem icon={<FiGrid size ={20} />} 
+                label ="admin"
+                active ={active === "admin"}
+                onClick={()=> {setactive("admin");
+                  navigate("/admin/add-product");
+                }}/>
+
               </div>
             
             </div>
@@ -131,7 +138,7 @@ export default function Navbar() {
     </button>
 
     <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
-      onClickl={()=>navigate("/wishlist")}>
+      onClick={()=>navigate("/wishlist")}>
       <FiHeart size={18} />
       <span>Wishlist</span>
     </button>
@@ -143,10 +150,17 @@ export default function Navbar() {
     </button>
 
     <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
-      onClickl={ ()=>navigate("/profile")}>
+      onClick={ ()=>navigate("/profile")}>
       <FiUser size={18} />
       <span>Profile</span>
     </button>
+
+    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+      onClick={()=>navigate("/admin/add-product")}>
+      <FiGrid size={18} />
+      <span>Admin</span>
+    </button> 
+
   </div>
 </div>
             </div>
