@@ -57,7 +57,7 @@ export default function AdminAddProduct() {
 
       <form
         onSubmit={handlesubmit}
-        className="flex flex-col items-center justify-center mx-10 bg-white max-w-[470px] xl:mx-auto my-20 w-full rounded-xl border p-4"
+        className="flex flex-col items-center justify-center mx-3  bg-white max-w-[470px] xl:mx-auto my-20 w-full rounded-xl border p-4"
       >
 
         <h3 className='font-semibold text-xl font-["Playfair_Display"]'>
@@ -112,7 +112,7 @@ export default function AdminAddProduct() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-[#bd5d3c] text-white font-semibold hover:bg-[#a94f32] transition px-10 py-2 rounded-lg mt-5"
+          className="bg-[#bd5d3c] text-white text-sm md:text-md font-semibold hover:bg-[#a94f32] transition px-4  md:px-10 py-2 rounded-lg mt-5"
         >
           {loading?"Loading...":"Submit"}
         </button>
