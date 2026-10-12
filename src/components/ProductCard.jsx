@@ -1,11 +1,14 @@
 import React from 'react'
 import { FaHeart } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 export default function ProductCard({data}) {
+  const navigate = useNavigate();
   return (
     <>
     
-    <div className='min-w-[110px] transition transform-300 hover:-translate-y-2 '>
+    <div className='min-w-[110px] transition transform-300 hover:-translate-y-2 '
+     onClick={()=>navigate(`/product/${data._id}`)}>
 
       <div className=' relative group   xl:h-[300px] w-full overflow-hidden rounded-t-2xl'>
         <img className='w-full  object-cover transition duration-500 group-hover:scale-105' src={data.image} alt="error"/>
