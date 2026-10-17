@@ -87,7 +87,7 @@ export default function Productdetail() {
                   <button className='hover:bg-neutral-100 px-3 rounded-md py-1 cursor-pointer' onClick={()=>setquantity(quantity+1)}>+</button>
 
                 </div>
-                <div className=' text-white font-semibold flex items-center justify-center bg-[#c8542e]  rounded-lg  px-12 xl:px-38 hover:-translate-y-1 transition duration-200 xl:py-3 cursor-pointer text-sm  xl:text-md'> <span className='text-white mr-2 text-sm xl:text-md'><FaShoppingBag /></span>Add to bag</div>
+                <div className=' text-white font-semibold flex items-center justify-center bg-[#c8542e]  rounded-lg w-full   hover:-translate-y-1 transition duration-200 xl:py-3 cursor-pointer text-sm  xl:text-md'> <span className='text-white mr-2 text-sm xl:text-md'><FaShoppingBag /></span>Add to bag</div>
 
                 <div className='flex items-center justify-center text-2xl border-1 border-neutral-100 px-3 py-1 xl:py-3 bg-white rounded-lg cursor-pointer'><AiOutlineHeart/></div>
               </div>
