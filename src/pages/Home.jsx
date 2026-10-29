@@ -6,10 +6,13 @@ import {products} from "../assets/product"
 import ProductCard from '../components/ProductCard';
 import {useState ,useEffect} from "react";
 import api from "../api/api";
+import { useAuth } from '../context/AuthContext';
+
 
 export default function Home() {
   const [data ,setdata]=useState([]);
   const [count ,setcount]=useState("");
+  const {user}=useAuth();
  useEffect(()=>{
   fetchuser()
  },[]);
@@ -29,6 +32,7 @@ export default function Home() {
 //   }
 const fetchuser = async () => {
   try {
+    console.log(user);
     const res = await api.get("/products/product-fetch");
 
     console.log("FULL API RESPONSE:", res.data);

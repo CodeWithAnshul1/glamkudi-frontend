@@ -2,11 +2,13 @@ import { FiHome, FiHeart, FiShoppingBag, FiUser, FiSearch, FiMenu, FiX  ,FiGrid 
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 
 export default function Navbar() {
   const [active, setactive] =useState("home");
   const[menuOpen , setmenuOpen] =useState(false);
+  const{user}=useAuth();
   const navigate=useNavigate();
   return (
     <nav className='w-full bg-[#fffdf9] border-b border-[#e9e3dc] fixed top-0 z-500'>
@@ -32,7 +34,7 @@ export default function Navbar() {
                 placeholder="Search dresses , bags , makeup and more"
                 className="flex-1 outline-none ml-2"/>
 
-                <button className="h-[30px] mr-1.5 px-6 rounded-xl bg-[#2d2927] text-white text-sm font-semibold hover:bg-[#403a37] transition">
+                <button className="h-[30px] mr-1.5 px-4 xl:px-6 rounded-xl bg-[#2d2927] text-white text-sm font-semibold hover:bg-[#403a37] transition">
                   Search
                 </button>
                 
@@ -70,12 +72,12 @@ export default function Navbar() {
                 }}
                 />
 
-                <Navitem icon={<FiGrid size ={20} />} 
+                {user?.role==="admin" &&(<Navitem icon={<FiGrid size ={20} />} 
                 label ="admin"
                 active ={active === "admin"}
                 onClick={()=> {setactive("admin");
                   navigate("/admin/add-product");
-                }}/>
+                }}/>)}
 
               </div>
             

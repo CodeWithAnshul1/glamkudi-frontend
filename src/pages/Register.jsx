@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { FaEyeSlash ,FaEye} from 'react-icons/fa';
+import api from "../api/api";
 
 export default function Register() {
     const navigate=useNavigate();
@@ -11,8 +12,43 @@ export default function Register() {
     const [show ,setShow]=useState(false);
     const [password ,setPass]=useState("");
     const [loading , setLoading]=useState(false);
-    const createacc =async()=>{
+    const [otp ,setotp]=useState("");
 
+    const createacc =async(e)=>{
+         e.preventDefault();
+        try{
+
+             const {data}=await api.post("/users/signup-otp",{
+            email,
+            name,
+            password
+        });
+        console.log(data.message);
+        setOtpbox(true);
+
+        }catch(err){
+            console.log(err);
+        }
+       
+
+    }
+
+    const verify = async()=>{
+        try{
+            setLoading(true);
+            const {data}=await api.post("/users/verify-otp",{
+                email,
+                otp,
+            });
+            console.log(data.message);
+            setotp("");
+
+        }catch(err){
+            console.log(err.response?.data.message||err);
+        }
+        finally{
+            setLoading(false);
+        }
     }
   return (
     <div className='w-full h-screen bg-gradient-to-r from-[#f7e9df] via-[#f8e5d6] to-[#fed7ad] flex items-center justify-center px-3'>
@@ -81,7 +117,29 @@ export default function Register() {
 
                 </>
                  
-            ):(ff)}
+            ):(
+                <div className='relative'>
+
+                 <input type={show? "Number":"password"}
+                 value={otp}
+                 onChange={(e)=>setotp(e.target.value)}
+                 required
+                 placeholder='6 digit otp'
+                 className='w-full border border-[#ded6cf] rounded-xl p-3 bg-transparent outline-none text-[#302723]
+                    placeholder:text-[#aaa09a] focus:border-[#bd5d3c]  focus-within:ring-2
+                focus-within:ring-[#bd5d3c]/10
+                transition'/>
+
+                <span className='absolute right-3 top-4 text-[#aaa09a]'
+                onClick={()=>setShow(!show)}>{show?<FaEyeSlash/> :<FaEye/>}</span>
+
+                <button className=' bg-[#bd5d3c] text-white  font-semibold w-full py-2 mt-8 rounded-xl'
+                 type="button" 
+                 onClick={verify}>Submit otp</button>
+                </div>
+
+                
+            )}
 
 
         </form>

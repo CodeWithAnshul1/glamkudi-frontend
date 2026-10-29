@@ -9,16 +9,41 @@ import {
 } from "react-icons/fi";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import api from "../api/api"
 
 export default function Login() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
+  const [email,setEmail]=useState("");
+  const [loading , setLoading]=useState("");
+  const [password , setPassword]=useState("");
+
+
+  const handlesubmit=async(e)=>{
+    e.preventDefault();
+    try{
+      setLoading(true);
+      const {data} = await api.post("/users/sign-in",{
+        email,
+        password
+      });
+      console.log(data.message);
+      console.log(email,password);
+
+    }catch(err){
+      console.log(err.response?.message||err);
+
+    }finally{
+      setLoading(false);
+
+    }
+  }
 
   return (
      <>
-    <main className="min-h-screen  bg-[#fffdf9] flex items-center justify-center px-5 py-12">
+    <main className="min-h-screen  bg-[#fffdf9] flex items-center justify-center px-3 py-12">
 
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -97,7 +122,8 @@ export default function Login() {
           </div>
 
           {/* Form */}
-          <form className="mt-8">
+          <form className="mt-8"
+           onSubmit={handlesubmit}>
 
             {/* Email */}
             <div>
@@ -126,6 +152,8 @@ export default function Login() {
                 <input
                   type="email"
                   placeholder="you@example.com"
+                  vaule={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                   className="
                     w-full h-full
                     px-3
@@ -169,6 +197,8 @@ export default function Login() {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                   className="
                     w-full h-full
                     px-3
@@ -244,14 +274,20 @@ export default function Login() {
                 shadow-[0_8px_24px_rgba(189,93,60,0.20)]
               "
             >
-
-              Sign in
-
-              <FiArrowRight
+              {loading?(
+                "Loading"
+              ):(
+                <>
+                Sign in
+                 <FiArrowRight
                 size={19}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-
+              </>
+              )
+             
+            }
+             
             </button>
 
           </form>
