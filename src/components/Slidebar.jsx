@@ -40,7 +40,7 @@ const menuItems = [
 export default function ProfileSidebar({ onLogout }) {
 
   return (
-    <aside className="h-fit w-full rounded-2xl border border-[#e9e3dc] bg-white p-5 shadow-sm md:w-[260px]">
+    <aside className="h-fit w-full rounded-2xl border border-[#e9e3dc] bg-[#FDF7F0] p-5 shadow-sm md:w-[260px]">
 
       {/* Sidebar Heading */}
       <div className="mb-6 border-b border-[#e9e3dc] pb-5">
@@ -58,7 +58,7 @@ export default function ProfileSidebar({ onLogout }) {
       </div>
 
       {/* Navigation */}
-      <nav className="space-y-3">
+      <nav className="grid grid-cols-2 md:flex flex-col md:space-y-3">
         {menuItems.map(({ name, path, icon: Icon, end }) => (
           <NavLink
             key={path}

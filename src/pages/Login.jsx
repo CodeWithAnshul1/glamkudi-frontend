@@ -10,15 +10,34 @@ import {
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api"
+import { useAuth } from "../context/AuthContext";
+
 
 export default function Login() {
   const navigate = useNavigate();
+  const {user} =useAuth();
+  if(user)  navigate("/")
 
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [email,setEmail]=useState("");
   const [loading , setLoading]=useState("");
   const [password , setPassword]=useState("");
+  const [message ,setmessage]=useState("");
+  const [good ,setgood]=useState(false);
+
+  const showmessage=(msg ,isSuccess =false)=>{
+    setmessage(msg);
+    setgood(isSuccess);
+    setTimeout(()=>{
+      setmessage("");
+      setgood(false);
+      if(isSuccess) navigate("/");
+      // setgood(false)
+
+    },2000)
+
+  }
 
 
   const handlesubmit=async(e)=>{
@@ -29,14 +48,16 @@ export default function Login() {
         email,
         password
       });
-      console.log(data.message);
-      console.log(email,password);
-
+      // setgood(true);
+      // setmessage(data.message);
+      showmessage(data.message,true);
+      
     }catch(err){
-      console.log(err.response?.message||err);
-
+      // console.log(err.response?.message||err);
+      showmessage(err.response?.data.message,false);
     }finally{
       setLoading(false);
+      
 
     }
   }
@@ -289,6 +310,8 @@ export default function Login() {
             }
              
             </button>
+
+            <div className ={` text-lg h-8px w-full mt-2 text-center ${good? "text-[#15803D] bg-[#DCFCE7]  ":"text-[#B91C1C] "}`}>{message}</div>
 
           </form>
 

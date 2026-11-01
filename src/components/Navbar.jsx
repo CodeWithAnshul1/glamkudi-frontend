@@ -157,11 +157,11 @@ export default function Navbar() {
       <span>Profile</span>
     </button>
 
-    <button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
+    {user?.role ==="admin"&&<button className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/10"
       onClick={()=>navigate("/admin/add-product")}>
       <FiGrid size={18} />
       <span>Admin</span>
-    </button> 
+    </button> }
 
   </div>
 </div>
