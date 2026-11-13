@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api"
 import { useAuth } from "../context/AuthContext";
+import SEO from "../components/SEO";
 
 
 export default function Login() {
@@ -64,6 +65,11 @@ export default function Login() {
 
   return (
      <>
+     <SEO
+      title="Login to Your Account"
+      description="Login to your Glamkudi account to manage your orders, explore your wishlist and enjoy a seamless online shopping experience."
+      />
+
     <main className="min-h-screen  bg-[#fffdf9] flex items-center justify-center px-3 py-12">
 
       {/* Background */}

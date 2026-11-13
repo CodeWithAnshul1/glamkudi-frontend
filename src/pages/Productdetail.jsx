@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import api from "../api/api"
+import SEO from '../components/SEO';
 
 
 
@@ -38,6 +39,11 @@ export default function Productdetail() {
 
   return (
     <>
+    <SEO
+      title={data.title}
+      description={`${data.description?.slice(0, 150)} Shop ${data.name} online at Glamkudi. Explore stylish fashion and lifestyle products.`}
+      canonical="https://galmkudi.in/product/:id" 
+      robots="index,follow"     />
     <Navbar/>
    <motion.div
     initial={{y:"100vh", opacity:0}} animate={{y:0,opacity:1}} transition={{ease:"easeInOut" , duration :1}}

@@ -7,6 +7,7 @@ import ProductCard from '../components/ProductCard';
 import {useState ,useEffect} from "react";
 import api from "../api/api";
 import { useAuth } from '../context/AuthContext';
+import SEO from '../components/SEO';
 
 
 export default function Home() {
@@ -47,8 +48,14 @@ const fetchuser = async () => {
  
 
   return (
+    <>
+    <SEO
+      title="Women's Fashion Store"
+      description="Discover women's fashion, beauty and lifestyle products at Glamkudi."
+      robots="index ,follow"/>
     <div>
         <>
+
         <Navbar/>
         <Hero/>
         <div className='w-full py-8 bg-[rgb(252,244,237)]  font-DM Sans, Arial, sans-serif'>
@@ -70,5 +77,6 @@ const fetchuser = async () => {
         <Footer/>
       </>
     </div>
+    </>
   );
 }

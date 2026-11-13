@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /profile/
+Disallow: /admin/
+Disallow: /register/
+Disallow: /cart/
+Disallow: /wishlist/
+
+Sitemap:https://api.glamkudi.in/sitemap.xml

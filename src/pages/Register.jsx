@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { FaEyeSlash ,FaEye} from 'react-icons/fa';
 import api from "../api/api";
+import SEO from '../components/SEO';
 
 export default function Register() {
     const navigate=useNavigate();
@@ -51,6 +52,13 @@ export default function Register() {
         }
     }
   return (
+    <>
+    <SEO
+        title="Create Your Account"
+        description="Join Glamkudi and discover the latest trends in women's fashion, beauty and lifestyle. Create your account and start shopping today."
+        canonical="https://glamkudi.in/signup"
+        robots="noindex, follow"/>
+
     <div className='w-full h-screen bg-gradient-to-r from-[#f7e9df] via-[#f8e5d6] to-[#fed7ad] flex items-center justify-center px-3'>
         <form
             onSubmit={createacc}
@@ -145,5 +153,6 @@ export default function Register() {
         </form>
       
     </div>
+    </>
   )
 }
